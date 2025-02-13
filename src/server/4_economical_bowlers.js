@@ -39,5 +39,5 @@ function economical_bowlers(data_in_deliveries,data_in_matches){
 
 }
 const result=JSON.stringify(economical_bowlers(data_in_deliveries,data_in_matches),null,2);
-let outputFile="/home/sanju/Downloads/IPL-project-js/src/public/output/4_economical_bowlers.json";
-fs.writeFileSync(outputFile,result,'utf8');
+let outputFile="./src/public/output/4_economical_bowlers.json";
+fs.writeFileSync(outputFile,result);

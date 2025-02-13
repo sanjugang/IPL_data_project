@@ -26,5 +26,5 @@ function player_of_the_match(data_in_matches){
 
 }
 const result=JSON.stringify(player_of_the_match(data_in_matches),null,2);
-let outputFile="/home/sanju/Downloads/IPL-project-js/src/public/output/6_player_of_the_match.json";
+let outputFile="./src/public/output/6_player_of_the_match.json";
 fs.writeFileSync(outputFile,result);

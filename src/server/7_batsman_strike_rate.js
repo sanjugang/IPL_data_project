@@ -5,24 +5,25 @@ let data_in_deliveries = require("../data/deliver.json");
 let data_in_matches = require("../data/matches.json");
 
 function batsman_strikerate(batsman) {
-    const strike_rates = {};
-    const match_season = {};
-    for (let match of data_in_matches) {
-        match_season[match.id] = match.season;
-    }
-    for (let delivery of data_in_deliveries) {
-        if (delivery.batsman.toLowerCase() === batsman.toLowerCase()) { 
+    const match_season = data_in_matches.reduce((acc, match) => {
+        acc[match.id] = match.season;
+        return acc;
+    }, {});
+    const strike_rates = data_in_deliveries
+        .filter(delivery => delivery.batsman.toLowerCase() === batsman.toLowerCase()) // Filter deliveries for the batsman
+        .reduce((acc, delivery) => {
             let season = match_season[delivery.match_id];
 
-            if (!strike_rates[season]) {
-                strike_rates[season] = { runs: 0, balls: 0 };
+            if (!acc[season]) {
+                acc[season] = { runs: 0, balls: 0 };
             }
-            strike_rates[season].runs += parseInt(delivery.batsman_runs, 10);
+            acc[season].runs += parseInt(delivery.batsman_runs, 10);
             if (delivery.wide_runs === "0") {
-                strike_rates[season].balls += 1;
+                acc[season].balls += 1;
             }
-        }
-    }
+
+            return acc;
+        }, {});
     const result = {};
     for (let i in strike_rates) {
         let year_stats = strike_rates[i];
@@ -37,5 +38,5 @@ function batsman_strikerate(batsman) {
 
 
 const result=JSON.stringify(batsman_strikerate("v kohli"),null,2);
-let outputFile="/home/sanju/Downloads/IPL-project-js/src/public/output/7_batsman_strike_rate.json";
+let outputFile="./src/public/output/7_batsman_strike_rate.json";
 fs.writeFileSync(outputFile,result);
