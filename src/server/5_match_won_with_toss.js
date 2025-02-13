@@ -19,5 +19,5 @@ function won_toss_and_match(data_in_matches){
     return result;
 }
 const result=JSON.stringify(won_toss_and_match(data_in_matches),null,2);
-let outputFile="/home/sanju/Downloads/IPL-project-js/src/public/output/5-match_won_with_toss.json";
+let outputFile="/home/sanju/Downloads/IPL-project-js/src/public/output/5_match_won_with_toss.json";
 fs.writeFileSync(outputFile,result);

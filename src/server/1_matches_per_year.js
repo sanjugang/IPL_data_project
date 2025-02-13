@@ -20,5 +20,5 @@ function matches_in_year(data){
 
 let result=matches_in_year(data);
 let jsonResult=JSON.stringify(result,null,2);
-let outputFile="/home/sanju/Downloads/IPL-project-js/src/public/output/1-matchesPerYear.json";
+let outputFile="/home/sanju/Downloads/IPL-project-js/src/public/output/1_matchesPerYear.json";
 fs.writeFileSync(outputFile,jsonResult,'utf8');

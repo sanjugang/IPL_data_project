@@ -20,5 +20,5 @@ function matches_own_per_team(data){
     return matches_won;
 }
 const result=JSON.stringify(matches_own_per_team(data),null,2);
-let outputFile="/home/sanju/Downloads/IPL-project-js/src/public/output/2-matches-won-per-team-year.json";
+let outputFile="/home/sanju/Downloads/IPL-project-js/src/public/output/2_matches_won_per_team_year.json";
 fs.writeFileSync(outputFile,result,'utf8');
