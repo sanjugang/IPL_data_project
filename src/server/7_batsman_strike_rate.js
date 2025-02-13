@@ -37,5 +37,5 @@ function batsman_strikerate(batsman) {
 
 
 const result=JSON.stringify(batsman_strikerate("v kohli"),null,2);
-let outputFile="/home/sanju/Downloads/IPL-project-js/src/public/output/7-batsman_strike_rate.json";
+let outputFile="/home/sanju/Downloads/IPL-project-js/src/public/output/7_batsman_strike_rate.json";
 fs.writeFileSync(outputFile,result);
