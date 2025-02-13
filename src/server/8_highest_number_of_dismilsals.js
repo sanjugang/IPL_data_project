@@ -43,5 +43,5 @@ function most_dismisalls_by_a_player(data_in_deliveries) {
 }
 
 const result=JSON.stringify(most_dismisalls_by_a_player(data_in_deliveries),null,2);
-let outputFile="/home/sanju/Downloads/IPL-project-js/src/public/output/8_highest_number_of_dismisals.json";
+let outputFile="./src/public/output/8_highest_number_of_dismisals.json";
 fs.writeFileSync(outputFile,result);

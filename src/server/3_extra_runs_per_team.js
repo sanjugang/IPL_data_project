@@ -27,5 +27,5 @@ function extra_runs_per_team(data_in_deliveries,data_in_matches){
     return extra_runs;
 }
 const result=JSON.stringify(extra_runs_per_team(data_in_deliveries,data_in_matches),null,2);
-let outputFile="/home/sanju/Downloads/IPL-project-js/src/public/output/3_extra_runs_per_team.json";
+let outputFile="./src/public/output/3_extra_runs_per_team.json";
 fs.writeFileSync(outputFile,result,'utf8');

@@ -42,5 +42,5 @@ function best_economy_in_super_over(data_in_deliveries) {
         
 }
 const result=JSON.stringify(best_economy_in_super_over(data_in_deliveries),null,2);
-let outputFile="/home/sanju/Downloads/IPL-project-js/src/public/output/9_best_econoy_in_super_over.json";
+let outputFile="./src/public/output/9_best_econoy_in_super_over.json";
 fs.writeFileSync(outputFile,result);
