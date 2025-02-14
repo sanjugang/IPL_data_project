@@ -6,10 +6,11 @@ let data_in_matches=require("../data/matches.json");
 
 function economical_bowlers(data_in_deliveries,data_in_matches){
     const top_bowlers=[];
-    const match_id = new Set(
-        data_in_matches
-            .filter(match => match.season === "2015")
-            .map(match => match.id) );
+    for (let i = 0; i < data_in_matches.length; i++) {
+        if (data_in_matches[i].season === "2015") {
+            match_id.add(data_in_matches[i].id);
+        }
+    }
     const bowlers={};
     for(let delivery of data_in_deliveries){
         

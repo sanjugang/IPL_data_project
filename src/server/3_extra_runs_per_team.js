@@ -9,11 +9,13 @@ let data_in_matches=require("../data/matches.json");
 function extra_runs_per_team(data_in_deliveries,data_in_matches){
     const extra_runs={};
     
-    const match_id = new Set(
-        data_in_matches
-            .filter(match => match.season === "2016")
-            .map(match => match.id) 
-    );
+    const match_id = new Set();
+
+    for (let i = 0; i < data_in_matches.length; i++) {
+        if (data_in_matches[i].season === "2016") {
+            match_id.add(data_in_matches[i].id);
+        }
+    }
     data_in_deliveries.forEach(match=>{
         if(match_id.has(match.match_id)){
             if(!extra_runs[match.bowling_team]){
