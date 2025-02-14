@@ -31,7 +31,7 @@ function most_dismisalls_by_a_player(data_in_deliveries) {
                 }
             });
         
-            if (max_dismissal.dismissalCount > maxDismissals.dismissalCount) {
+            if(max_dismissal.dismissalCount > maxDismissals.dismissalCount) {
                 maxDismissals = { batsman: player, ...max_dismissal };
             }
         });

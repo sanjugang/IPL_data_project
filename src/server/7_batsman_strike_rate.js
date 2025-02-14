@@ -10,7 +10,7 @@ function batsman_strikerate(batsman) {
         return acc;
     }, {});
     const strike_rates = data_in_deliveries
-        .filter(delivery => delivery.batsman.toLowerCase() === batsman.toLowerCase()) // Filter deliveries for the batsman
+        .filter(delivery => delivery.batsman.toLowerCase() === batsman.toLowerCase()) 
         .reduce((acc, delivery) => {
             let season = match_season[delivery.match_id];
 
@@ -24,16 +24,16 @@ function batsman_strikerate(batsman) {
 
             return acc;
         }, {});
-    const result = {};
-    for (let i in strike_rates) {
-        let year_stats = strike_rates[i];
-        result[i] = {
-            playerName: batsman,
-            strikeRate: parseFloat(((year_stats.runs / year_stats.balls) * 100).toFixed(3))
-        };
-    }
-
-    return result;
+        const result = Object.entries(strike_rates).reduce((acc, [i, year_stats]) => {
+            acc[i] = {
+                playerName: batsman,
+                strikeRate: parseFloat(((year_stats.runs / year_stats.balls) * 100).toFixed(3))
+            };
+            return acc;
+        }, {});
+        
+        return result;
+        
 }
 
 
